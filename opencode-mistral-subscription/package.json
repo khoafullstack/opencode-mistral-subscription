@@ -1,0 +1,36 @@
+{
+	"name": "opencode-mistral-subscription",
+	"version": "0.1.0",
+	"description": "OpenCode plugin: Mistral subscription sign-in through Mistral AI Studio, separate mistral-subscription provider.",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"files": [
+		"src/",
+		"README.md",
+		"LICENSE"
+	],
+	"engines": {
+		"node": ">=22.19.0"
+	},
+	"scripts": {
+		"test": "node --test --test-reporter=dot --import tsx \"tests/**/*.test.ts\"",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome ci --colors=off .",
+		"secrets": "secretlint \"**/*\"",
+		"check": "npm run -s lint && npm run -s test && npm run -s typecheck && npm run -s secrets"
+	},
+	"dependencies": {
+		"@opencode/plugin": "2.3.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.6.3",
+		"@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
+		"@types/node": "~22.20.5",
+		"secretlint": "^13.1.0",
+		"tsx": "^4.23.15",
+		"typescript": "^7.0.2"
+	}
+}
